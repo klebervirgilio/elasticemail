@@ -78,4 +78,46 @@ describe Elasticemail::Contacts do
       end
     end
   end
+  describe 'load' do
+    context "when fails to load" do
+      it 'does not load a contact', vcr: {cassette_name: "contacts/load_fail"}  do
+        resp = described_class.find do end
+        expect(resp).to be_fail
+      end
+    end
+
+    context "succeed to load", vcr: {record: :new_episodes, cassette_name: "contacts/load_success"} do
+      let(:email) { "USER@example.com" }
+      subject do
+        resp = Elasticemail::Accounts.add do |account|
+          account.email            = "NOW@example.com"
+          account.password         = 'p4550rD!'
+          account.confirm_password = 'p4550rD!'
+
+          account.marketing_type!
+        end
+
+        api_key = resp.data
+        require 'pry'; binding.pry
+        resp = Elasticemail::Accounts.list do |account|
+          account.api_key = api_key
+        end
+
+        described_class.add do |contact|
+          contact.email               = email
+          contact.requires_activation = false
+          contact.public_account_id   = resp.data[0]['publicaccountid']
+        end
+
+        described_class.find do |contact|
+          contact.api_key = api_key
+          contact.email   = email
+        end
+      end
+
+      it 'loads a contact' do
+        is_expected.to be_success
+      end
+    end
+  end
 end

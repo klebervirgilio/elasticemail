@@ -9,6 +9,12 @@ module Elasticemail
     def self.delete
       contact = Elasticemail::Contact::DeleteContact.new
       yield contact
+      contact.perform!
+    end
+
+    def self.find
+      contact = Elasticemail::Contact::LoadContact.new
+      yield contact
       contact.perform
     end
   end

@@ -9,16 +9,18 @@ module Elasticemail
     }.freeze
 
 
-    # http://api.elasticemail.com/public/help#Contact_Add
+    # http://api.elasticemail.com/public/help#Contact_Delete
     class DeleteContact < Struct.new(*DELETE_CONTACT_ATTRIBUTES_MAPPING.keys)
       include Elasticemail::Base
-      class ParamsNotValid < StandardError; end
 
+      def perform!
+        raise Elasticemail::Errors::PayloadNotValid, 'comma separated emails or rule must be provide' if payload_valid?
+        # it will always return success doesn't matter if the payload is valid or not
+        perform
+      end
 
-      def perform
-        raise Elasticemail::Errors::PayloadNotValid, 'comma separated emails or rule must be provide' if emails.nil? && rule.nil?
-        # it will always returns success doesn't matter if the payload is valid or not
-        super
+      def payload_valid?
+        emails.nil? && rule.nil?
       end
 
       def path

@@ -15,6 +15,7 @@ require "elasticemail/accounts"
 # Contact
 require "elasticemail/contact/add_contact"
 require "elasticemail/contact/delete_contact"
+require "elasticemail/contact/load_contact"
 require "elasticemail/contacts"
 
 
