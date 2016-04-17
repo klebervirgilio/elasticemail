@@ -1,7 +1,9 @@
 module Elasticemail
   class Contacts
-    def self.add(params)
-      Elasticemail::Contact::AddContact.new(params).perform
+    def self.add
+      contact = Elasticemail::Contact::AddContact.new
+      yield contact
+      contact.perform
     end
   end
 end

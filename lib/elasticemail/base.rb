@@ -3,17 +3,23 @@ module Elasticemail
   class ElasticemailSettingsMissingError < StandardError; end
 
   module Base
-    class Response
-      def initialize(resp)
-        @resp = JSON(resp.body)
+
+    class ResponseJson
+      def initialize(response)
+        @raw_response = response
+        @json = if response_json?
+                  JSON(@raw_response.body)
+                else
+                  {'data' =>  @raw_response.body}
+                end
       end
 
       def body
-        @resp
+        @json
       end
 
       def success?
-        @resp['success']
+        @json['success']
       end
 
       def fail?
@@ -21,17 +27,22 @@ module Elasticemail
       end
 
       def error
-        @resp['error']
+        @json['error']
       end
 
       def data
-        @resp['data']
+        @json['data']
+      end
+
+      def response_json?
+        @raw_response.headers["content-type"].to_s =~ /json/
       end
     end
 
+
     def perform
       params           = build_params
-      params[:api_key] = api_key
+      params[:api_key] ||= api_key
 
       Timeout::timeout(Elasticemail.settings[:timeout]) do
         @response =  session.get do |request|
@@ -43,7 +54,7 @@ module Elasticemail
     end
 
     def last_response
-      Response.new(@response)
+      ResponseJson.new(@response)
     end
 
     def build_params

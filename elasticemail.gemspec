@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["klebervirgilio@gmail.com"]
 
   spec.summary       = %q{A Ruby API library for the Elastic Email.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  # spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or

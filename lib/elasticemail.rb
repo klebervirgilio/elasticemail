@@ -8,6 +8,7 @@ require "elasticemail/base"
 # Account
 require "elasticemail/account/add_account"
 require "elasticemail/account/delete_account"
+require "elasticemail/account/get_subaccount_list"
 require "elasticemail/accounts"
 
 # Contact

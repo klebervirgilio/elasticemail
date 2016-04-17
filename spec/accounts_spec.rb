@@ -26,9 +26,16 @@ describe Elasticemail::Accounts do
 
           account.marketing_type!
         end
+
+        resp = described_class.list do |account|
+          account.api_key = resp.data
+        end
+
+        # require 'pry'; binding.pry
+
         described_class.delete do |delete_account|
           delete_account.notify            = false
-          delete_account.sub_account_email = email
+          delete_account.public_account_id = resp.data[0]['publicaccountid']
         end
       end
       it 'fails to delete account' do
