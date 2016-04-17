@@ -5,5 +5,11 @@ module Elasticemail
       yield contact
       contact.perform
     end
+
+    def self.delete
+      contact = Elasticemail::Contact::DeleteContact.new
+      yield contact
+      contact.perform
+    end
   end
 end

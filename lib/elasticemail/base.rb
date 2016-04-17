@@ -41,8 +41,8 @@ module Elasticemail
 
 
     def perform
-      params           = build_params
-      params[:api_key] ||= api_key
+      params = build_params
+      params[:apikey] ||= api_key
 
       Timeout::timeout(Elasticemail.settings[:timeout]) do
         @response =  session.get do |request|
@@ -63,13 +63,6 @@ module Elasticemail
           next unless value = public_send(k)
           params[v] = value
         end
-      end
-    end
-
-    def assign_attrinbutes(params)
-      raise(StandardError, "Attributes needs to be a hash") unless params === Hash
-      params.each do |k,v|
-        public_send("#{k}=",v)
       end
     end
 

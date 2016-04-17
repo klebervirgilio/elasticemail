@@ -3,6 +3,7 @@
 require "elasticemail/version"
 
 require "faraday"
+require "elasticemail/errors"
 require "elasticemail/base"
 
 # Account
@@ -13,6 +14,7 @@ require "elasticemail/accounts"
 
 # Contact
 require "elasticemail/contact/add_contact"
+require "elasticemail/contact/delete_contact"
 require "elasticemail/contacts"
 
 

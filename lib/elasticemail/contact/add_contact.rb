@@ -36,6 +36,10 @@ module Elasticemail
     class AddContact < Struct.new(*ADD_CONTACT_ATTRIBUTES_MAPPING.keys)
       include Elasticemail::Base
 
+      # in a successful scenario, the response will be a html snippet
+      # def perform
+      # end
+
       def path
         :"/contact/add"
       end
