@@ -6,6 +6,12 @@ module Elasticemail
       contact.perform
     end
 
+    def self.quick_add
+      contact = Elasticemail::Contact::QuickAddContact.new
+      yield contact
+      contact.perform
+    end
+
     def self.delete
       contact = Elasticemail::Contact::DeleteContact.new
       yield contact
