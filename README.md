@@ -25,7 +25,7 @@ Or install it yourself as:
 ```ruby
 # Add an account
 Elasticemail::Accounts.add do |account|
-  account.email            = email
+  account.email            = 'email@example.com'
   account.password         = 'p4550rD!'
   account.confirm_password = 'p4550rD!'
 
@@ -38,7 +38,45 @@ Elasticemail::Accounts.delete do |delete_account|
   delete_account.public_account_id = 'account.publicaccountid'
 end
 
-...
+# Load an account
+Elasticemail::Accounts.find('account.apikey')
+
+
+# Add a contact
+Elasticemail::Contacts.add do |contact|
+  contact.email               = email
+  contact.requires_activation = false
+  contact.public_account_id   = 'account.publicaccountid'
+end
+
+# Delete a contact
+Elasticemail::Contacts.delete do |contact|
+  contact.api_key = resp.data['apikey']
+  contact.emails  = email
+end
+
+# Load a contact
+Elasticemail::Contacts.find do |contact|
+  contact.api_key = 'account.api_key'
+  contact.email   = 'contact@email.com'
+end
+
+# Send email
+Elasticemail::Emails.deliver do |email|
+  email.charset        = 'utf-8'
+  email.post_back      = 'http://requestb.in/...'
+  email.reply_to_email = 'reply to name'
+  email.channel        = 'aka tag'
+  email.reply_to       = 'reply@toemail.com'
+  email.from_name      = 'from name'
+  email.from           = 'from@email.com'
+  email.to             = 'example1@example.com,example2@example.com'
+  email.msg_to         = 'example1@example.com,example2@example.com'
+  email.msg_cc         = 'example1@example.com,example2@example.com'
+  email.subject        = 'Subject'
+  email.body_html      = '<h1>hi</h1><a href="http://www.google.com">link...</a>'
+  email.body_text      = 'hi'
+end
 ```
 
 ## Development
