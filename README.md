@@ -42,15 +42,15 @@ Elasticemail::Accounts.find('account.apikey')
 
 # Add a contact
 Elasticemail::Contacts.add do |contact|
-  contact.email               = email
+  contact.email               = 'contact@email.com'
   contact.requires_activation = false
   contact.public_account_id   = 'account.publicaccountid'
 end
 
 # Delete a contact
 Elasticemail::Contacts.delete do |contact|
-  contact.api_key = resp.data['apikey']
-  contact.emails  = email
+  contact.api_key = 'account.apikey'
+  contact.emails  = 'contact@email.com'
 end
 
 # Load a contact
