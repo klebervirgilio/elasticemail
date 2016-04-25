@@ -101,7 +101,7 @@ describe Elasticemail::Contacts do
         end
 
         described_class.delete do |contact|
-          contact.api_key = resp.data
+          contact.api_key = resp.data['apikey']
           contact.emails  = email
         end
       end

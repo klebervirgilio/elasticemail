@@ -4,21 +4,18 @@ describe Elasticemail::Accounts do
 
   describe 'delete' do
     context "when fails", vcr: {record: :new_episodes, cassette_name: "accounts/delete_fail"} do
-      subject do
-        described_class.delete do |delete|
+
+      it 'fails to delete account' do
+        resp = described_class.delete do |delete|
           delete.notify = false
         end
-      end
-      it 'fails to delete account' do
-        is_expected.to be_fail
-      end
-      it 'has error message' do
-        expect(subject.error).not_to be_empty
+        expect(resp).to be_fail
       end
     end
     context "when succeed", vcr: {record: :new_episodes, cassette_name: "accounts/delete_success"} do
       subject do
         email  = "example#{SecureRandom.hex}@example.com"
+
         resp = described_class.add do |account|
           account.email            = email
           account.password         = 'p4550rD!'
@@ -27,18 +24,15 @@ describe Elasticemail::Accounts do
           account.marketing_type!
         end
 
-        resp = described_class.list do |account|
-          account.api_key = resp.data
-        end
-
-        # require 'pry'; binding.pry
+        resp = described_class.find(resp.data)
 
         described_class.delete do |delete_account|
           delete_account.notify            = false
-          delete_account.public_account_id = resp.data[0]['publicaccountid']
+          delete_account.public_account_id = resp.data['publicaccountid']
         end
       end
-      it 'fails to delete account' do
+
+      it 'deletes account' do
         is_expected.to be_success
       end
     end

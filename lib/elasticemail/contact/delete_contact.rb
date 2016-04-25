@@ -4,8 +4,8 @@ module Elasticemail
 
     DELETE_CONTACT_ATTRIBUTES_MAPPING = {
       :api_key => "apikey",
-      :rule => "rule",
-      :emails => "emails"
+      :emails  => "emails",
+      :rule    => "rule",
     }.freeze
 
 

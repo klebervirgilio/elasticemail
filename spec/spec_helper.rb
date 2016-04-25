@@ -2,6 +2,7 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'elasticemail'
 require 'vcr'
 require 'httplog'
+require 'pry-meta'
 
 VCR.configure do |config|
   config.cassette_library_dir = "spec/vcr_cassettes"

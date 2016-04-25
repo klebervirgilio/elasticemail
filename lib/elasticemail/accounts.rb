@@ -12,9 +12,9 @@ module Elasticemail
       account.perform
     end
 
-    def self.list
-      account = Elasticemail::Account::GetSubAccountList.new
-      yield account
+    def self.find(api_key=nil)
+      account = Elasticemail::Account::LoadAccount.new(api_key)
+      yield account if block_given?
       account.perform
     end
   end

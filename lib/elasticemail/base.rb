@@ -42,7 +42,7 @@ module Elasticemail
 
     def perform
       params = build_params
-      params[:apikey] ||= api_key
+      params["apikey"] ||= _api_key
 
       Timeout::timeout(Elasticemail.settings[:timeout]) do
         @response =  session.get do |request|
@@ -78,11 +78,6 @@ module Elasticemail
       raise(NotImplementedError, 'mapping is required')
     end
 
-    def api_key
-      raise ElasticemailSettingsMissingError, 'You must provide a ELASTIC_EMAIL_API_KEY' unless Elasticemail.settings[:api_key]
-      Elasticemail.settings[:api_key]
-    end
-
     def host
       raise ElasticemailSettingsMissingError, 'You must provide a ELASTIC_EMAIL_HOST_KEY' unless Elasticemail.settings[:host]
       Elasticemail.settings[:host]
@@ -91,6 +86,12 @@ module Elasticemail
     def version
       raise ElasticemailSettingsMissingError, 'You must provide a ELASTIC_EMAIL_HOST_KEY' unless Elasticemail.settings[:version]
       Elasticemail.settings[:version]
+    end
+
+    private
+    def _api_key
+      raise ElasticemailSettingsMissingError, 'You must provide a ELASTIC_EMAIL_API_KEY' unless Elasticemail.settings[:api_key]
+      Elasticemail.settings[:api_key]
     end
   end
 end

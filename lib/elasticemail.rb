@@ -1,4 +1,3 @@
-# $LOAD_PATH.unshift File.expand_path('..', __FILE__)
 require 'dotenv'
 Dotenv.load
 
@@ -11,11 +10,12 @@ require "elasticemail/base"
 # Account
 require "elasticemail/account/add_account"
 require "elasticemail/account/delete_account"
-require "elasticemail/account/get_subaccount_list"
+require "elasticemail/account/load_account"
 require "elasticemail/accounts"
 
 # Contact
 require "elasticemail/contact/add_contact"
+require "elasticemail/contact/quick_add_contact"
 require "elasticemail/contact/delete_contact"
 require "elasticemail/contact/load_contact"
 require "elasticemail/contacts"
