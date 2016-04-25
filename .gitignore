@@ -7,4 +7,5 @@
 /pkg/
 /spec/reports/
 /tmp/
-.env
+/.env
+/spec/vcr_cassettes
