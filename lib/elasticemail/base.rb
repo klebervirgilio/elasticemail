@@ -45,9 +45,14 @@ module Elasticemail
       params["apikey"] ||= _api_key
 
       Timeout::timeout(Elasticemail.settings[:timeout]) do
-        @response =  session.get do |request|
-                        request.path   = [version, path].join('/')
-                        request.params = params
+
+        @response =   if block_given?
+                        yield
+                      else
+                        session.get do |request|
+                          request.path   = [version, path].join('/')
+                          request.params = params
+                        end
                       end
         last_response
       end
@@ -67,7 +72,13 @@ module Elasticemail
     end
 
     def session
-      @session ||= Faraday.new(url: "#{Elasticemail.settings[:host]}")
+      @session ||= begin
+        Faraday.new(url: "#{Elasticemail.settings[:host]}") do |conn|
+          conn.request :multipart
+          conn.request :url_encoded
+          conn.adapter :net_http
+        end
+      end
     end
 
     def path
@@ -88,7 +99,6 @@ module Elasticemail
       Elasticemail.settings[:version]
     end
 
-    private
     def _api_key
       raise ElasticemailSettingsMissingError, 'You must provide a ELASTIC_EMAIL_API_KEY' unless Elasticemail.settings[:api_key]
       Elasticemail.settings[:api_key]

@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.elasticemail.com/v2/account/addsubaccount?accountType=2&apikey=86d209fa-5a18-4a9e-9795-9b1a5f05c192&confirmPassword=p4550rD!&email=example9b1125f83215eb32bd739239987334b9@example.com&password=p4550rD!
+    uri: https://api.elasticemail.com/v2/account/addsubaccount?accountType=2&apikey=86d209fa-5a18-4a9e-9795-9b1a5f05c192&confirmPassword=p4550rD!&email=examplee3426f5841c132722468280f2b57cf01@example.com&password=p4550rD!
     body:
       encoding: US-ASCII
       string: ''
@@ -37,17 +37,17 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Mon, 25 Apr 2016 00:55:08 GMT
+      - Mon, 25 Apr 2016 03:20:39 GMT
       Content-Length:
-      - '80'
+      - '79'
     body:
       encoding: UTF-8
-      string: '{"success":true,"data":"666f7b21-27b4-4662-abaf-868db18098d0"}'
+      string: '{"success":true,"data":"8acd40c2-cb4d-4e59-9397-e8ca5948bfdc"}'
     http_version: 
-  recorded_at: Mon, 25 Apr 2016 00:55:09 GMT
+  recorded_at: Mon, 25 Apr 2016 03:20:39 GMT
 - request:
     method: get
-    uri: https://api.elasticemail.com/v2/account/load?apikey=86d209fa-5a18-4a9e-9795-9b1a5f05c192
+    uri: https://api.elasticemail.com/v2/account/load?apikey=8acd40c2-cb4d-4e59-9397-e8ca5948bfdc
     body:
       encoding: US-ASCII
       string: ''
@@ -82,17 +82,17 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Mon, 25 Apr 2016 00:55:10 GMT
+      - Mon, 25 Apr 2016 03:20:41 GMT
       Content-Length:
-      - '867'
+      - '878'
     body:
       encoding: UTF-8
-      string: '{"success":true,"data":{"taxcode":"","publicaccountid":"b9bfd8ad-5bbe-4320-96b5-fafc629e1ab4","apikey":"86d209fa-5a18-4a9e-9795-9b1a5f05c192","apikey2":null,"issub":false,"subaccountscount":94,"statusnumber":1,"statusformatted":"Active","accounttype":2,"paymentformurl":null,"logourl":"","website":"","enableprivatebranding":false,"supportlink":"","privatebrandingurl":"","firstname":null,"lastname":null,"company":null,"address1":null,"address2":null,"city":null,"state":null,"zip":null,"countryid":null,"phone":"","email":"klebervirgilio@gmail.com","affiliatelink":"b9bfd8ad-5bbe-4320-96b5-fafc629e1ab4","reputation":80.0,"totalemailssent":0,"monthlyemailssent":0,"credit":0.000000,"emailcredits":25000,"priceperemail":0.00019,"deliveryreason":"","accountpaymenturl":null,"smtp":"smtp.elasticemail.com","smtpalternative":"smtp25.elasticemail.com","autocreditstatus":"neverenabled","autocreditlevel":0.000000,"autocreditamount":0.000000,"dailysendlimit":0,"datecreated":"2016-04-16T04:21:46","linktracking":false,"contenttransferencoding":"Base64","litmuscredits":0.0,"enablecontactfeatures":true,"accountaccesslevel":"AccountGroup","billingplan":null,"isfreebillingplan":false,"resellerpaymenturl":null,"isreseller":false,"monthlycontactsubscription":0.0000,"nextbillingdate":null,"contactscount":4,"attachmentprice":0.0,"pricelevel":"10","marketingconsent":false,"requirereportspam":false,"currency":"$","isownedbyreseller":false,"billingtypes":null,"morebillingtypes":false,"autocreditnotyetenabled":true,"mailerid":-9,"hasvaliddomain":false,"billingmethod":0,"enableuitooltips":true,"stampliaaccesstoken":null,"stampliarefreshtoken":null,"isinbound":false,"requiresemailcredits":false,"templatecredits":0,"enablepremiumtemplates":true,"requirestemplatecredits":false,"enablelitmustest":false,"requireslitmuscredits":false,"enableprivateiprequest":true,"contactbillingplan":"free","chargeforcontacts":true,"classicpricingplan":false,"throttled":"0.100000","user":null}}'
+      string: '{"success":true,"data":{"taxcode":"","publicaccountid":"63e3ccd0-1b4d-4355-8923-10d325b29124","apikey":"8acd40c2-cb4d-4e59-9397-e8ca5948bfdc","apikey2":null,"issub":true,"subaccountscount":0,"statusnumber":1,"statusformatted":"Active","accounttype":2,"paymentformurl":null,"logourl":"","website":"","enableprivatebranding":false,"supportlink":"","privatebrandingurl":"","firstname":null,"lastname":null,"company":null,"address1":null,"address2":null,"city":null,"state":null,"zip":null,"countryid":null,"phone":"","email":"examplee3426f5841c132722468280f2b57cf01@example.com","affiliatelink":"63e3ccd0-1b4d-4355-8923-10d325b29124","reputation":80.0,"totalemailssent":0,"monthlyemailssent":0,"credit":0.000000,"emailcredits":0,"priceperemail":0.00019,"deliveryreason":"","accountpaymenturl":null,"smtp":"smtp.elasticemail.com","smtpalternative":"smtp25.elasticemail.com","autocreditstatus":"neverenabled","autocreditlevel":0.000000,"autocreditamount":0.000000,"dailysendlimit":0,"datecreated":"2016-04-25T03:20:40","linktracking":false,"contenttransferencoding":"Base64","litmuscredits":0.0,"enablecontactfeatures":true,"accountaccesslevel":"AccountGroup","billingplan":null,"isfreebillingplan":false,"resellerpaymenturl":null,"isreseller":false,"monthlycontactsubscription":0.0000,"nextbillingdate":null,"contactscount":0,"attachmentprice":0.0,"pricelevel":"1","marketingconsent":false,"requirereportspam":false,"currency":"$","isownedbyreseller":false,"billingtypes":null,"morebillingtypes":false,"autocreditnotyetenabled":true,"mailerid":-9,"hasvaliddomain":false,"billingmethod":0,"enableuitooltips":false,"stampliaaccesstoken":null,"stampliarefreshtoken":null,"isinbound":false,"requiresemailcredits":false,"templatecredits":0,"enablepremiumtemplates":false,"requirestemplatecredits":false,"enablelitmustest":false,"requireslitmuscredits":false,"enableprivateiprequest":true,"contactbillingplan":"free","chargeforcontacts":true,"classicpricingplan":false,"throttled":"0.100000","user":null}}'
     http_version: 
-  recorded_at: Mon, 25 Apr 2016 00:55:11 GMT
+  recorded_at: Mon, 25 Apr 2016 03:20:42 GMT
 - request:
     method: get
-    uri: https://api.elasticemail.com/v2/contact/add?apikey=86d209fa-5a18-4a9e-9795-9b1a5f05c192&email=exampled9cc6960ad8c3f16a91a266e6008885c@example.com&publicAccountID=b9bfd8ad-5bbe-4320-96b5-fafc629e1ab4
+    uri: https://api.elasticemail.com/v2/contact/add?apikey=86d209fa-5a18-4a9e-9795-9b1a5f05c192&email=example981d08e087c45c95c19c279daee3c4dc@example.com&publicAccountID=63e3ccd0-1b4d-4355-8923-10d325b29124
     body:
       encoding: US-ASCII
       string: ''
@@ -127,7 +127,7 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Mon, 25 Apr 2016 00:55:13 GMT
+      - Mon, 25 Apr 2016 03:20:43 GMT
       Content-Length:
       - '360'
     body:
@@ -137,14 +137,14 @@ http_interactions:
         style="margin: 30px auto 0 auto;padding: 20px;border: solid 5px #ccc; max-width:480px"><div
         style="margin: 0 auto; text-align:center;"><div style="margin: 30px auto 0
         auto;padding: 20px; text-align:center;">Thank you, an activation email has
-        been sent to exampled9cc6960ad8c3f16a91a266e6008885c@example.com.  Please
+        been sent to example981d08e087c45c95c19c279daee3c4dc@example.com.  Please
         check your email to complete the sign-up process.</div><h5 style="text-align:center"><br
         /> , , </h5></div></body></html>'
     http_version: 
-  recorded_at: Mon, 25 Apr 2016 00:55:14 GMT
+  recorded_at: Mon, 25 Apr 2016 03:20:43 GMT
 - request:
     method: get
-    uri: https://api.elasticemail.com/v2/account/addsubaccount?accountType=2&apikey=86d209fa-5a18-4a9e-9795-9b1a5f05c192&confirmPassword=p4550rD!&email=example@example.com&password=p4550rD!
+    uri: https://api.elasticemail.com/v2/account/addsubaccount?accountType=2&apikey=86d209fa-5a18-4a9e-9795-9b1a5f05c192&confirmPassword=p4550rD!&email=examplef52f211245dbbd2848c77c5e7b6dd16c@example.com&password=p4550rD!
     body:
       encoding: US-ASCII
       string: ''
@@ -179,113 +179,17 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Mon, 25 Apr 2016 00:58:01 GMT
-      Content-Length:
-      - '96'
-    body:
-      encoding: UTF-8
-      string: '{"success":false,"error":"AN ACCOUNT ALREADY EXISTS FOR THAT EMAIL
-        ADDRESS"}'
-    http_version: 
-  recorded_at: Mon, 25 Apr 2016 00:58:02 GMT
-- request:
-    method: get
-    uri: https://api.elasticemail.com/v2/contact/add?apikey=86d209fa-5a18-4a9e-9795-9b1a5f05c192&email=example@example.com&publicAccountID=b9bfd8ad-5bbe-4320-96b5-fafc629e1ab4
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.9.2
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Cache-Control:
-      - private
-      Content-Type:
-      - text/html; charset=utf-8
-      Vary:
-      - Accept-Encoding
-      Server:
-      - Microsoft-IIS/8.5
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Allow-Headers:
-      - Origin, X-Requested-With, Content-Type, Accept
-      X-Robots-Tag:
-      - noindex, nofollow
-      X-Aspnet-Version:
-      - 4.0.30319
-      X-Powered-By:
-      - ASP.NET
-      Date:
-      - Mon, 25 Apr 2016 00:58:03 GMT
-      Content-Length:
-      - '291'
-    body:
-      encoding: UTF-8
-      string: '<html><meta name="viewport" content="width=device-width, height=device-height,
-        initial-scale=1, maximum-scale=1, target-densitydpi=device-dpi"><body style="font-family:Arial;"><div
-        style="margin: 30px auto 0 auto;padding: 20px;border: solid 5px #ccc; max-width:480px"><div
-        style="margin: 0 auto; text-align:center;"><div style="margin: 30px auto 0
-        auto;padding: 20px; text-align:center;">Thank you, example@example.com is
-        already subscribed.</div><h5 style="text-align:center"><br /> , , </h5></div></body></html>'
-    http_version: 
-  recorded_at: Mon, 25 Apr 2016 00:58:03 GMT
-- request:
-    method: get
-    uri: https://api.elasticemail.com/v2/account/addsubaccount?accountType=2&apikey=86d209fa-5a18-4a9e-9795-9b1a5f05c192&confirmPassword=p4550rD!&email=examplee424e165f40b75bf4580b683ade07892@example.com&password=p4550rD!
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.9.2
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Cache-Control:
-      - private
-      Content-Type:
-      - application/json; charset=utf-8
-      Vary:
-      - Accept-Encoding
-      Server:
-      - Microsoft-IIS/8.5
-      Access-Control-Allow-Origin:
-      - "*"
-      Access-Control-Allow-Headers:
-      - Origin, X-Requested-With, Content-Type, Accept
-      X-Robots-Tag:
-      - noindex, nofollow
-      X-Aspnet-Version:
-      - 4.0.30319
-      X-Powered-By:
-      - ASP.NET
-      Date:
-      - Mon, 25 Apr 2016 01:52:31 GMT
+      - Mon, 25 Apr 2016 03:22:54 GMT
       Content-Length:
       - '80'
     body:
       encoding: UTF-8
-      string: '{"success":true,"data":"53e88229-e3bf-48b5-b2ba-242a704b00e4"}'
+      string: '{"success":true,"data":"8b8c2050-f1af-4788-9e1a-7d2621232410"}'
     http_version: 
-  recorded_at: Mon, 25 Apr 2016 01:52:32 GMT
+  recorded_at: Mon, 25 Apr 2016 03:22:54 GMT
 - request:
     method: get
-    uri: https://api.elasticemail.com/v2/account/load?apikey=53e88229-e3bf-48b5-b2ba-242a704b00e4
+    uri: https://api.elasticemail.com/v2/account/load?apikey=8b8c2050-f1af-4788-9e1a-7d2621232410
     body:
       encoding: US-ASCII
       string: ''
@@ -320,17 +224,17 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Mon, 25 Apr 2016 01:52:32 GMT
+      - Mon, 25 Apr 2016 03:22:56 GMT
       Content-Length:
       - '878'
     body:
       encoding: UTF-8
-      string: '{"success":true,"data":{"taxcode":"","publicaccountid":"d2a6a6d0-6b05-442f-9707-e9a9a862fd54","apikey":"53e88229-e3bf-48b5-b2ba-242a704b00e4","apikey2":null,"issub":true,"subaccountscount":0,"statusnumber":1,"statusformatted":"Active","accounttype":2,"paymentformurl":null,"logourl":"","website":"","enableprivatebranding":false,"supportlink":"","privatebrandingurl":"","firstname":null,"lastname":null,"company":null,"address1":null,"address2":null,"city":null,"state":null,"zip":null,"countryid":null,"phone":"","email":"examplee424e165f40b75bf4580b683ade07892@example.com","affiliatelink":"d2a6a6d0-6b05-442f-9707-e9a9a862fd54","reputation":80.0,"totalemailssent":0,"monthlyemailssent":0,"credit":0.000000,"emailcredits":0,"priceperemail":0.00019,"deliveryreason":"","accountpaymenturl":null,"smtp":"smtp.elasticemail.com","smtpalternative":"smtp25.elasticemail.com","autocreditstatus":"neverenabled","autocreditlevel":0.000000,"autocreditamount":0.000000,"dailysendlimit":0,"datecreated":"2016-04-25T01:52:32","linktracking":false,"contenttransferencoding":"Base64","litmuscredits":0.0,"enablecontactfeatures":true,"accountaccesslevel":"AccountGroup","billingplan":null,"isfreebillingplan":false,"resellerpaymenturl":null,"isreseller":false,"monthlycontactsubscription":0.0000,"nextbillingdate":null,"contactscount":0,"attachmentprice":0.0,"pricelevel":"1","marketingconsent":false,"requirereportspam":false,"currency":"$","isownedbyreseller":false,"billingtypes":null,"morebillingtypes":false,"autocreditnotyetenabled":true,"mailerid":-9,"hasvaliddomain":false,"billingmethod":0,"enableuitooltips":false,"stampliaaccesstoken":null,"stampliarefreshtoken":null,"isinbound":false,"requiresemailcredits":false,"templatecredits":0,"enablepremiumtemplates":false,"requirestemplatecredits":false,"enablelitmustest":false,"requireslitmuscredits":false,"enableprivateiprequest":true,"contactbillingplan":"free","chargeforcontacts":true,"classicpricingplan":false,"throttled":"0.100000","user":null}}'
+      string: '{"success":true,"data":{"taxcode":"","publicaccountid":"2d1c4ff7-690d-455b-8d9f-17244b5e0209","apikey":"8b8c2050-f1af-4788-9e1a-7d2621232410","apikey2":null,"issub":true,"subaccountscount":0,"statusnumber":1,"statusformatted":"Active","accounttype":2,"paymentformurl":null,"logourl":"","website":"","enableprivatebranding":false,"supportlink":"","privatebrandingurl":"","firstname":null,"lastname":null,"company":null,"address1":null,"address2":null,"city":null,"state":null,"zip":null,"countryid":null,"phone":"","email":"examplef52f211245dbbd2848c77c5e7b6dd16c@example.com","affiliatelink":"2d1c4ff7-690d-455b-8d9f-17244b5e0209","reputation":80.0,"totalemailssent":0,"monthlyemailssent":0,"credit":0.000000,"emailcredits":0,"priceperemail":0.00019,"deliveryreason":"","accountpaymenturl":null,"smtp":"smtp.elasticemail.com","smtpalternative":"smtp25.elasticemail.com","autocreditstatus":"neverenabled","autocreditlevel":0.000000,"autocreditamount":0.000000,"dailysendlimit":0,"datecreated":"2016-04-25T03:22:54","linktracking":false,"contenttransferencoding":"Base64","litmuscredits":0.0,"enablecontactfeatures":true,"accountaccesslevel":"AccountGroup","billingplan":null,"isfreebillingplan":false,"resellerpaymenturl":null,"isreseller":false,"monthlycontactsubscription":0.0000,"nextbillingdate":null,"contactscount":0,"attachmentprice":0.0,"pricelevel":"1","marketingconsent":false,"requirereportspam":false,"currency":"$","isownedbyreseller":false,"billingtypes":null,"morebillingtypes":false,"autocreditnotyetenabled":true,"mailerid":-9,"hasvaliddomain":false,"billingmethod":0,"enableuitooltips":false,"stampliaaccesstoken":null,"stampliarefreshtoken":null,"isinbound":false,"requiresemailcredits":false,"templatecredits":0,"enablepremiumtemplates":false,"requirestemplatecredits":false,"enablelitmustest":false,"requireslitmuscredits":false,"enableprivateiprequest":true,"contactbillingplan":"free","chargeforcontacts":true,"classicpricingplan":false,"throttled":"0.100000","user":null}}'
     http_version: 
-  recorded_at: Mon, 25 Apr 2016 01:52:33 GMT
+  recorded_at: Mon, 25 Apr 2016 03:22:56 GMT
 - request:
     method: get
-    uri: https://api.elasticemail.com/v2/contact/add?apikey=86d209fa-5a18-4a9e-9795-9b1a5f05c192&email=exampleda079177830a43f07b4d90b6909b9758@example.com&publicAccountID=d2a6a6d0-6b05-442f-9707-e9a9a862fd54
+    uri: https://api.elasticemail.com/v2/contact/add?apikey=86d209fa-5a18-4a9e-9795-9b1a5f05c192&email=examplea91229ab02249e45f5db29c764b8b1b2@example.com&publicAccountID=2d1c4ff7-690d-455b-8d9f-17244b5e0209
     body:
       encoding: US-ASCII
       string: ''
@@ -365,9 +269,9 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Mon, 25 Apr 2016 01:52:34 GMT
+      - Mon, 25 Apr 2016 03:22:57 GMT
       Content-Length:
-      - '362'
+      - '361'
     body:
       encoding: UTF-8
       string: '<html><meta name="viewport" content="width=device-width, height=device-height,
@@ -375,9 +279,9 @@ http_interactions:
         style="margin: 30px auto 0 auto;padding: 20px;border: solid 5px #ccc; max-width:480px"><div
         style="margin: 0 auto; text-align:center;"><div style="margin: 30px auto 0
         auto;padding: 20px; text-align:center;">Thank you, an activation email has
-        been sent to exampleda079177830a43f07b4d90b6909b9758@example.com.  Please
+        been sent to examplea91229ab02249e45f5db29c764b8b1b2@example.com.  Please
         check your email to complete the sign-up process.</div><h5 style="text-align:center"><br
         /> , , </h5></div></body></html>'
     http_version: 
-  recorded_at: Mon, 25 Apr 2016 01:52:35 GMT
+  recorded_at: Mon, 25 Apr 2016 03:22:57 GMT
 recorded_with: VCR 2.9.3
