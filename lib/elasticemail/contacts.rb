@@ -9,7 +9,7 @@ module Elasticemail
     def self.delete
       contact = Elasticemail::Contact::DeleteContact.new
       yield contact
-      contact.perform!
+      contact.perform
     end
 
     def self.find

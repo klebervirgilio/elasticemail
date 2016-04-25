@@ -13,16 +13,6 @@ module Elasticemail
     class DeleteContact < Struct.new(*DELETE_CONTACT_ATTRIBUTES_MAPPING.keys)
       include Elasticemail::Base
 
-      def perform!
-        raise Elasticemail::Errors::PayloadNotValid, 'comma separated emails or rule must be provide' if payload_valid?
-        # it will always return success doesn't matter if the payload is valid or not
-        perform
-      end
-
-      def payload_valid?
-        emails.nil? && rule.nil?
-      end
-
       def path
         :"/contact/delete"
       end
