@@ -34,6 +34,7 @@ module Elasticemail
 
     # http://api.elasticemail.com/public/help#Email_Send
     class SendEmail < Struct.new(*SEND_EMAIL_ATTRIBUTES_MAPPING.keys)
+      include Elasticemail::Base
 
       def path
         :"/email/send"
