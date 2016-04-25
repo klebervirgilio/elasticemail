@@ -29,6 +29,8 @@ require "elasticemail/email/send_email"
 require "elasticemail/emails"
 
 
+require "elasticemail/web_notification/notification"
+
 
 
 module Elasticemail
