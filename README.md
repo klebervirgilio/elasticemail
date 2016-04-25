@@ -22,7 +22,24 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+# Add an account
+Elasticemail::Accounts.add do |account|
+  account.email            = email
+  account.password         = 'p4550rD!'
+  account.confirm_password = 'p4550rD!'
+
+  account.marketing_type!
+end
+
+# Delete an account
+Elasticemail::Accounts.delete do |delete_account|
+  delete_account.notify            = false
+  delete_account.public_account_id = 'account.publicaccountid'
+end
+
+...
+```
 
 ## Development
 
