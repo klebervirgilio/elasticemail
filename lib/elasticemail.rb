@@ -1,4 +1,6 @@
 # $LOAD_PATH.unshift File.expand_path('..', __FILE__)
+require 'dotenv'
+Dotenv.load
 
 require "elasticemail/version"
 
@@ -35,7 +37,7 @@ module Elasticemail
       version: ELASTIC_EMAIL_API_VERSION,
       host:    ELASTIC_EMAIL_API_HOST,
       timeout: 60,
-      api_key: nil
+      api_key: ENV['ELASTIC_EMAIL_API_KEY']
     }
   end
 

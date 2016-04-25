@@ -1,7 +1,7 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'elasticemail'
 require 'vcr'
-require 'fileutils'
+require 'httplog'
 
 VCR.configure do |config|
   config.cassette_library_dir = "spec/vcr_cassettes"
@@ -10,7 +10,7 @@ VCR.configure do |config|
 end
 
 Elasticemail.configure do |config|
-  config.api_key = "2ef97152-8ef5-438c-8cfa-d26c4e1e815e"
+  config.api_key = ENV['ELASTIC_EMAIL_API_KEY']
 end
 
 RSpec.configure do |c|
