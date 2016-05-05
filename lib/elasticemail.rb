@@ -25,6 +25,10 @@ require "elasticemail/contacts"
 require "elasticemail/email/send_email"
 require "elasticemail/emails"
 
+# Domains
+require "elasticemail/domain/add_domain"
+require "elasticemail/domains"
+
 
 require "elasticemail/web_notification/notification"
 
