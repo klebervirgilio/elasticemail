@@ -7,7 +7,7 @@ module Elasticemail
     }.freeze
 
 
-    # http://api.elasticemail.com/public/help#Domain_VerifyDkim
+    # http://api.elasticemail.com/public/help#Domain_VerifySpf
     class VerifySpf < Struct.new(*VERIFY_SPF_ATTRIBUTES_MAPPING.keys)
       include Elasticemail::Base
 

@@ -29,6 +29,7 @@ require "elasticemail/emails"
 require "elasticemail/domain/add_domain"
 require "elasticemail/domain/verify_dkim"
 require "elasticemail/domain/verify_spf"
+require "elasticemail/domain/verify_mx"
 require "elasticemail/domains"
 
 

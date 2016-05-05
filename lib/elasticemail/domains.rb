@@ -6,15 +6,21 @@ module Elasticemail
       domain.perform
     end
 
-    def self.verify_spf
-      domain = Elasticemail::Domain::VerifySpf.new
-      yield domain
+    def self.verify_spf(domain=nil)
+      domain = Elasticemail::Domain::VerifySpf.new(nil, domain)
+      yield domain if block_given?
       domain.perform
     end
 
-    def self.verify_dkim
-      domain = Elasticemail::Domain::VerifyDkim.new
-      yield domain
+    def self.verify_dkim(domain=nil)
+      domain = Elasticemail::Domain::VerifyDkim.new(nil, domain)
+      yield domain if block_given?
+      domain.perform
+    end
+
+    def self.verify_mx(domain=nil)
+      domain = Elasticemail::Domain::VerifyMx.new(nil, domain)
+      yield domain if block_given?
       domain.perform
     end
   end

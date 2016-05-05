@@ -97,6 +97,40 @@ describe Elasticemail::Domains do
     end
   end
 
+  describe 'verify_mx' do
+    context "when succeed", vcr: {record: :new_episodes, cassette_name: "domains/verify_mx_success"} do
+      subject do
+        resp = Elasticemail::Accounts.add do |account|
+          account.email            = "#{SecureRandom.hex}@example.com"
+          account.password         = 'p4550rD!'
+          account.confirm_password = 'p4550rD!'
+
+          account.marketing_type!
+        end
+
+        raise resp.error unless resp.success?
+
+        api_key = resp.data
+        sender_domain  = "#{SecureRandom.hex}.com"
+
+        Elasticemail::Domains.add do |domain|
+          domain.api_key = api_key
+          domain.domain  = sender_domain
+        end
+
+        Elasticemail::Domains.verify_mx do |domain|
+          domain.api_key = api_key
+          domain.domain  = sender_domain
+        end
+      end
+
+      # Add a success case
+      it 'verifies domain mx' do
+        expect(subject).to be_fail
+      end
+    end
+  end
+
   describe 'verify_dkim' do
     context "when succeed", vcr: {record: :new_episodes, cassette_name: "domains/verify_dkim_success"} do
       subject do
