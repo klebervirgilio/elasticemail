@@ -5,5 +5,17 @@ module Elasticemail
       yield domain
       domain.perform
     end
+
+    def self.verify_spf
+      domain = Elasticemail::Domain::VerifySpf.new
+      yield domain
+      domain.perform
+    end
+
+    def self.verify_dkim
+      domain = Elasticemail::Domain::VerifyDkim.new
+      yield domain
+      domain.perform
+    end
   end
 end

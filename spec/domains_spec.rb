@@ -39,37 +39,94 @@ describe Elasticemail::Domains do
   # end
 
   describe 'add' do
-    context "when fails", vcr: {record: :new_episodes, cassette_name: "domains/add_fail"} do
-      subject { described_class.add do end }
-
-      it 'is failed' do
-        is_expected.to be_fail
-      end
-
-      it 'has error message' do
-        expect(subject.error).not_to be_empty
-      end
-    end
-
     context "when succeed", vcr: {record: :new_episodes, cassette_name: "domains/add_success"} do
       subject do
         resp = Elasticemail::Accounts.add do |account|
-          account.email            = "NOW@example.com"
+          account.email            = "#{SecureRandom.hex}@example.com"
           account.password         = 'p4550rD!'
           account.confirm_password = 'p4550rD!'
 
           account.marketing_type!
         end
 
+        raise resp.error unless resp.success?
+
         api_key = resp.data
 
         Elasticemail::Domains.add do |domain|
           domain.api_key = api_key
-          domain.domain  = 'somesite.com'
+          domain.domain  = "#{SecureRandom.hex}.com"
         end
       end
       it 'adds a domain' do
         is_expected.to be_success
+      end
+    end
+  end
+
+  describe 'verify_spf' do
+    context "when succeed", vcr: {record: :new_episodes, cassette_name: "domains/verify_spf_success"} do
+      subject do
+        resp = Elasticemail::Accounts.add do |account|
+          account.email            = "#{SecureRandom.hex}@example.com"
+          account.password         = 'p4550rD!'
+          account.confirm_password = 'p4550rD!'
+
+          account.marketing_type!
+        end
+
+        raise resp.error unless resp.success?
+
+        api_key = resp.data
+        sender_domain  = "#{SecureRandom.hex}.com"
+
+        Elasticemail::Domains.add do |domain|
+          domain.api_key = api_key
+          domain.domain  = sender_domain
+        end
+
+        Elasticemail::Domains.verify_spf do |domain|
+          domain.api_key = api_key
+          domain.domain  = sender_domain
+        end
+      end
+
+      it 'verifies domain spf' do
+        expect(subject.error).to match(/Valid SPF record not found/)
+      end
+    end
+  end
+
+  describe 'verify_dkim' do
+    context "when succeed", vcr: {record: :new_episodes, cassette_name: "domains/verify_dkim_success"} do
+      subject do
+        resp = Elasticemail::Accounts.add do |account|
+          account.email            = "#{SecureRandom.hex}@example.com"
+          account.password         = 'p4550rD!'
+          account.confirm_password = 'p4550rD!'
+
+          account.marketing_type!
+        end
+
+        raise resp.error unless resp.success?
+
+        api_key = resp.data
+        sender_domain  = "#{SecureRandom.hex}.com"
+
+        Elasticemail::Domains.add do |domain|
+          domain.api_key = api_key
+          domain.domain  = sender_domain
+        end
+
+        Elasticemail::Domains.verify_dkim do |domain|
+          domain.api_key = api_key
+          domain.domain  = sender_domain
+        end
+      end
+
+      # Add a success case
+      it 'verifies domain dkim' do
+        expect(subject.error).to match(/Valid DKIM not found/)
       end
     end
   end
