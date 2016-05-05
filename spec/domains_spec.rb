@@ -92,7 +92,7 @@ describe Elasticemail::Domains do
       end
 
       it 'verifies domain spf' do
-        expect(subject.error).to match(/Valid SPF record not found/)
+        expect(subject).to be_fail
       end
     end
   end
@@ -126,7 +126,7 @@ describe Elasticemail::Domains do
 
       # Add a success case
       it 'verifies domain dkim' do
-        expect(subject.error).to match(/Valid DKIM not found/)
+        expect(subject).to be_fail
       end
     end
   end
