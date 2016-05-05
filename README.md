@@ -7,16 +7,12 @@ A Elastic Email HTTP API Ruby wrapper
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'elasticemail'
+gem 'elasticemail', git: "git://github.com/klebervirgilio/elasticemail.git"
 ```
 
 And then execute:
 
     $ bundle
-
-Or install it yourself as:
-
-    $ gem install elasticemail
 
 ## Usage
 

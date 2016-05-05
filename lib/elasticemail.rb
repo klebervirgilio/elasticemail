@@ -1,6 +1,3 @@
-require 'dotenv'
-Dotenv.load
-
 require "elasticemail/version"
 
 require "faraday"
