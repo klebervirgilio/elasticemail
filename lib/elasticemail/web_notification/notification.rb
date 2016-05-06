@@ -39,6 +39,13 @@ module Elasticemail
         @hsh_params = params
       end
 
+      STATUSES.each do |_status|
+        _method = "#{_status.downcase}?"
+        define_method _method do
+          self.status == _status
+        end unless instance_methods(false).include?(_method)
+      end
+
       def respond_to?(meth)
         return true if KEYS.include?(meth.to_s) || KEYS.include?(meth)
         super
@@ -51,7 +58,6 @@ module Elasticemail
           super
         end
       end
-
     end
   end
 end

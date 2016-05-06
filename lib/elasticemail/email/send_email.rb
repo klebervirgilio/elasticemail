@@ -29,12 +29,24 @@ module Elasticemail
       :headers               => "headers",
       :post_back             => "postback",
       :merge                 => "merge",
-      :time_offset_minutes   => "time_offset_minutes"
+      :time_offset_minutes   => "time_offset_minutes",
+      # https://elasticemail.com/support/http-api/mail-merge
+      :data_source           => "data_source"
     }.freeze
 
     # http://api.elasticemail.com/public/help#Email_Send
     class SendEmail < Struct.new(*SEND_EMAIL_ATTRIBUTES_MAPPING.keys)
       include Elasticemail::Base
+
+      def perform
+        super do
+          session.post do |request|
+            request.path   = [version, path].join('/')
+            request.params = { "apikey" => api_key || _api_key }
+            request.body   = build_params
+          end
+        end
+      end
 
       def path
         :"/email/send"
