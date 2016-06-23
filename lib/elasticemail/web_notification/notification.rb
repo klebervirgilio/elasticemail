@@ -1,15 +1,15 @@
 module Elasticemail
   module WebNotification
 
-    STATUSES = [
-      SENT         = "Sent",
-      OPENED       = 'Opened',
-      CLICKED      = "Clicked",
-      ERROR        = "Error",
-      SUCCESS      = "Success",
-      ABUSE_REPORT = "AbuseReport",
-      UNSUBSCRIBED = "Unsubscribed"
-    ].freeze
+    STATUSES = {
+      SENT         = "Sent"         => :sent,
+      OPENED       = 'Opened'       => :opened,
+      CLICKED      = "Clicked"      => :clicked,
+      ERROR        = "Error"        => :error,
+      SUCCESS      = "Success"      => :success,
+      ABUSE_REPORT = "AbuseReport"  => :abuse_report,
+      UNSUBSCRIBED = "Unsubscribed" => :unsubscribed
+    }.freeze
 
     CATEGORIES = [
       IGNORE                = "Ignore",
@@ -39,9 +39,8 @@ module Elasticemail
         @hsh_params = params
       end
 
-      STATUSES.each do |_status|
-        _method = "#{_status.downcase}?"
-        define_method _method do
+      STATUSES.each do |_status, _method|
+        define_method "#{_method}?" do
           self.status == _status
         end unless instance_methods(false).include?(_method)
       end
@@ -53,7 +52,7 @@ module Elasticemail
 
       def method_missing(meth, *args, &blk)
         if KEYS.include?(meth.to_s)
-         @hsh_params.fetch(meth.to_s) { @hsh_params.fetch(meth) }
+          @hsh_params.fetch(meth.to_s) { @hsh_params.fetch(meth) }
         else
           super
         end
