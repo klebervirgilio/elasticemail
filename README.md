@@ -37,7 +37,7 @@ Elasticemail::Accounts.find('account.apikey')
 
 # Load update http notification url
 Elasticemail::Accounts.update_http_notification_url do |notification|
-  notification.api_key = resp.data["api_key"]
+  notification.api_key = api_key
   notification.clicked = true
   notification.opened  = true
   notification.sent    = true
