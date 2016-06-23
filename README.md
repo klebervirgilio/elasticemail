@@ -35,6 +35,14 @@ end
 # Load an account
 Elasticemail::Accounts.find('account.apikey')
 
+# Load update http notification url
+Elasticemail::Accounts.update_http_notification_url do |notification|
+  notification.api_key = resp.data["api_key"]
+  notification.clicked = true
+  notification.opened  = true
+  notification.sent    = true
+  notification.url     = "http://example.com"
+end
 
 # Add a contact
 Elasticemail::Contacts.add do |contact|
@@ -54,6 +62,18 @@ Elasticemail::Contacts.find do |contact|
   contact.api_key = 'account.api_key'
   contact.email   = 'contact@email.com'
 end
+
+# Add an attachment
+Elasticemail::Attachments.upload do |attachment|
+  attachment.attachment_path = csv_file
+  attachment.attachment_content_type = 'text/csv'
+end
+
+# Get an attachment
+Elasticemail::Attachments.get(file_name, attachment_id, api_key)
+
+# Remove an attachment
+Elasticemail::Attachments.remove(file_name)
 
 # Send email
 Elasticemail::Emails.deliver do |email|
