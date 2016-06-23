@@ -8,6 +8,7 @@ require "elasticemail/base"
 require "elasticemail/account/add_account"
 require "elasticemail/account/delete_account"
 require "elasticemail/account/load_account"
+require "elasticemail/account/update_http_notification_account"
 require "elasticemail/accounts"
 
 # Attachment
