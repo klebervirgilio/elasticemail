@@ -12,6 +12,8 @@ require "elasticemail/accounts"
 
 # Attachment
 require "elasticemail/attachment/upload"
+require "elasticemail/attachment/remove_attachment"
+require "elasticemail/attachment/get_attachment"
 require "elasticemail/attachments"
 
 # Contact
