@@ -12,7 +12,6 @@ module Elasticemail
       :encoding_type         => "encodingType",
       :from                  => "from",
       :from_name             => "fromName",
-      :headers               => "headers",
       :lists                 => "lists",
       :merge                 => "merge",
       :merge_source_filename => "mergeSourceFilename",
@@ -70,9 +69,9 @@ module Elasticemail
         super do |params|
           @headers.delete_if { |_,v| v.nil? }
           params.merge!(@headers)
+          params
         end
       end
     end
-
   end
 end
