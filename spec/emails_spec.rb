@@ -22,7 +22,7 @@ describe Elasticemail::Emails do
       Elasticemail::Emails.deliver do |email|
         email.charset        = 'utf-8'
         email.post_back      = 'http://requestb.in/u5vajtu5'
-        email.reply_to_email = 'kleber bikeroar'
+        email.reply_to_name  = 'kleber bikeroar'
         email.channel        = 'newsletter'
         email.reply_to       = 'kleber@bikeroar.com'
         email.from_name      = 'kleber correia'

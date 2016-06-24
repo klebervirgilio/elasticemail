@@ -23,7 +23,7 @@ module Elasticemail
       :msg_to                => "msgTo",
       :post_back             => "postBack",
       :reply_to              => "replyTo",
-      :reply_to_email        => "reply_to_email",
+      :reply_to_name         => "replyToName",
       :segments              => "segments",
       :sender                => "sender",
       :sender_name           => "senderName",
