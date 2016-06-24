@@ -68,6 +68,7 @@ module Elasticemail
           next unless value = public_send(k)
           params[v] = value
         end
+        yield params if block_given?
       end
     end
 

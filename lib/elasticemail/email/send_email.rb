@@ -37,6 +37,13 @@ module Elasticemail
     class SendEmail < Struct.new(*SEND_EMAIL_ATTRIBUTES_MAPPING.keys)
       include Elasticemail::Base
 
+      attr_accessor :headers
+
+      def initialize
+        @headers = {}
+        super
+      end
+
       def perform
         super do
           session.post do |request|
@@ -51,8 +58,19 @@ module Elasticemail
         :"/email/send"
       end
 
+      def add_header(name, value)
+        @headers["headers_#{name}"] = value
+      end
+
       def mapping
         SEND_EMAIL_ATTRIBUTES_MAPPING
+      end
+
+      def build_params
+        super do |params|
+          @headers.delete_if { |_,v| v.nil? }
+          params.merge!(@headers)
+        end
       end
     end
 

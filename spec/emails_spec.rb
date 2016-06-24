@@ -34,6 +34,9 @@ describe Elasticemail::Emails do
         email.subject        = '[test] subject'
         email.body_html      = '<h1>hi</h1><a href="http://www.google.com">***link...</a>'
         email.body_text      = 'hi'
+
+        email.add_header "Custom1", "Custom Header 1"
+        email.add_header "Custom2", "Custom Header 2"
       end
     end
 
