@@ -23,5 +23,11 @@ module Elasticemail
       yield account
       account.perform
     end
+
+    def self.update_profile(api_key=nil)
+      account = Account::UpdateProfileAccount.new(api_key)
+      yield account
+      account.perform
+    end
   end
 end

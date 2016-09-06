@@ -64,6 +64,34 @@ describe Elasticemail::Accounts do
     it { is_expected.to be_success }
   end
 
+  describe '.update_profile' do
+    subject do
+      email  = "example#{SecureRandom.hex}@example.com"
+
+      resp = described_class.add do |account|
+        account.email            = email
+        account.password         = 'p4550rD!'
+        account.confirm_password = 'p4550rD!'
+
+        account.marketing_type!
+      end
+
+      resp = described_class.find(resp.data)
+
+      described_class.update_profile do |account|
+        account.api_key   = resp.data["api_key"]
+        account.address_1  = 'Some Ave'
+        account.company    = 'Company Name'
+        account.city       = 'São Paulo'
+        account.state      = 'São Paulo'
+        account.zip        = '03694-000'
+        account.country_id = Elasticemail::Constants::COUNTRY_IDS['Brazil']
+      end
+    end
+
+    it { is_expected.to be_success }
+  end
+
   describe '.add' do
     context "when fails", vcr: {record: :new_episodes, cassette_name: "accounts/add_fail"} do
       subject { described_class.add do end }
