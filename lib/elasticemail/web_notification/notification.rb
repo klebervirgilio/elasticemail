@@ -32,7 +32,7 @@ module Elasticemail
       UNKNOWN               = "Unknown",
     ].freeze
 
-    KEYS = %w[ to date subject status channel account category transaction ]
+    KEYS = %w[ to date subject status channel account category transaction target messageid ]
 
     class Notificaton
       def initialize(params)
