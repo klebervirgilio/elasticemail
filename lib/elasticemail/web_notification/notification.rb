@@ -1,6 +1,8 @@
 module Elasticemail
   module WebNotification
 
+    DATE_FORMAT = '%m/%d/%Y %H:%M:%S %p'.freeze
+
     STATUSES = {
       SENT         = "Sent"         => :sent,
       OPENED       = 'Opened'       => :opened,
@@ -32,11 +34,15 @@ module Elasticemail
       UNKNOWN               = "Unknown",
     ].freeze
 
-    KEYS = %w[ to date subject status channel account category transaction target messageid ]
+    KEYS = %w[ to subject status channel account category transaction target messageid ]
 
     class Notificaton
       def initialize(params)
         @hsh_params = params
+      end
+
+      def date
+        DateTime.strptime(@hsh_params['date'], DATE_FORMAT)
       end
 
       STATUSES.each do |_status, _method|

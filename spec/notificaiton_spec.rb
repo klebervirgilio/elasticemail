@@ -10,7 +10,7 @@ describe Elasticemail::WebNotification::Notificaton do
       "transaction"=>"transaction",
       "to"=>"sales@eample.net",
       "from"=>"demo@eample.net",
-      "date"=>"9/30/2016 5:34:21 AM",
+      "date"=>"9/30/2016 5:34:21 PM",
       "status"=>"Clicked",
       "channel"=>"channel",
       "account"=>"elastic@eample.net",
@@ -29,11 +29,21 @@ describe Elasticemail::WebNotification::Notificaton do
   end
 
   describe 'payload' do
+    let(:notification) { Elasticemail::WebNotification::Notificaton.new(payload) }
+
     Elasticemail::WebNotification::KEYS.each do |_method|
       it "reads #{_method}" do
-        notification = Elasticemail::WebNotification::Notificaton.new(payload)
         expect(notification.public_send(_method)).to eq(payload[_method])
       end
+    end
+
+    it 'parses date' do
+      expect(notification.date.day).to eq(30)
+      expect(notification.date.month).to eq(9)
+      expect(notification.date.year).to eq(2016)
+      expect(notification.date.hour).to eq(17)
+      expect(notification.date.minute).to eq(34)
+      expect(notification.date.second).to eq(21)
     end
   end
 
