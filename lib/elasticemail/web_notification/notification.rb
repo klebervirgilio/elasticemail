@@ -71,11 +71,11 @@ module Elasticemail
       end
 
       def soft_bounce?
-        @soft_bounce ||= SOFT_BOUNCE.include?(category)
+        @soft_bounce ||= error? && SOFT_BOUNCE.include?(category)
       end
 
       def hard_bounce?
-        @hard_bounce ||= HARD_BOUNCE.include?(category)
+        @hard_bounce ||= error? && HARD_BOUNCE.include?(category)
       end
 
       STATUSES.each do |_status, _method|

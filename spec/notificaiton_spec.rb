@@ -58,13 +58,13 @@ describe Elasticemail::WebNotification::Notificaton do
   describe '.soft_bounce?' do
     Elasticemail::WebNotification::SOFT_BOUNCE.each do |bounce|
       it "#{bounce} is soft bounce" do
-        notification = Elasticemail::WebNotification::Notificaton.new(category: bounce)
+        notification = Elasticemail::WebNotification::Notificaton.new(category: bounce, status: Elasticemail::WebNotification::ERROR)
         expect(notification).to be_soft_bounce
       end
     end
     Elasticemail::WebNotification::HARD_BOUNCE.each do |bounce|
       it "#{bounce} is not soft bounce" do
-        notification = Elasticemail::WebNotification::Notificaton.new(category: bounce)
+        notification = Elasticemail::WebNotification::Notificaton.new(category: bounce, status: Elasticemail::WebNotification::ERROR)
         expect(notification).not_to be_soft_bounce
       end
     end
@@ -73,13 +73,13 @@ describe Elasticemail::WebNotification::Notificaton do
   describe '.hard_bounce?' do
     Elasticemail::WebNotification::HARD_BOUNCE.each do |bounce|
       it "#{bounce} is hard bounce" do
-        notification = Elasticemail::WebNotification::Notificaton.new(category: bounce)
+        notification = Elasticemail::WebNotification::Notificaton.new(category: bounce, status: Elasticemail::WebNotification::ERROR)
         expect(notification).to be_hard_bounce
       end
     end
     Elasticemail::WebNotification::SOFT_BOUNCE.each do |bounce|
       it "#{bounce} is not hard bounce" do
-        notification = Elasticemail::WebNotification::Notificaton.new(category: bounce)
+        notification = Elasticemail::WebNotification::Notificaton.new(category: bounce, status: Elasticemail::WebNotification::ERROR)
         expect(notification).not_to be_hard_bounce
       end
     end
