@@ -21,6 +21,7 @@ require "elasticemail/attachments"
 
 # Contact
 require "elasticemail/contact/add_contact"
+require "elasticemail/contact/change_status_contact"
 require "elasticemail/contact/quick_add_contact"
 require "elasticemail/contact/delete_contact"
 require "elasticemail/contact/load_contact"

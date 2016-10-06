@@ -152,4 +152,69 @@ describe Elasticemail::Contacts do
       end
     end
   end
+
+  describe 'change_status' do
+    # context "when fails to load" do
+    #   it 'does not load a contact', vcr: {cassette_name: "contacts/load_fail"}  do
+    #     resp = described_class.find do end
+    #     expect(resp).to be_fail
+    #   end
+    # end
+
+    context "succeed to load", vcr: {record: :new_episodes, cassette_name: "contacts/change_status_success"} do
+      let(:email) { "#{SecureRandom.urlsafe_base64}@example.com" }
+
+      before do
+        resp = Elasticemail::Accounts.add do |account|
+          account.email            = "#{SecureRandom.urlsafe_base64}@example.com"
+          account.password         = 'p4550rD!'
+          account.confirm_password = 'p4550rD!'
+
+          account.marketing_type!
+        end
+
+        @api_key = resp.data
+
+        resp = Elasticemail::Accounts.find(@api_key)
+
+        described_class.add do |contact|
+          contact.email               = email
+          contact.requires_activation = false
+          contact.public_account_id   = resp.data['publicaccountid']
+        end
+
+        @contact = described_class.find do |contact|
+          contact.api_key = @api_key
+          contact.email   = email
+        end
+      end
+
+      it 'changes contact status' do
+        expect(@contact.data['status']).to eq(Elasticemail::Contact::INACTIVE)
+
+        described_class.change_status do |contact|
+          contact.api_key = @api_key
+          contact.emails  = email
+          contact.status  = Elasticemail::Contact::ACTIVE
+        end
+
+        resp = described_class.find do |contact|
+          contact.api_key = @api_key
+          contact.email   = email
+        end
+
+        expect(resp.data['status']).to eq(Elasticemail::Contact::ACTIVE)
+      end
+
+      it 'changes contact status shortcut' do
+        expect(@contact.data['status']).to eq(Elasticemail::Contact::INACTIVE)
+
+        described_class.activate(@api_key, email)
+
+        resp = described_class.find_by(@api_key, email)
+
+        expect(resp.data['status']).to eq(Elasticemail::Contact::ACTIVE)
+      end
+    end
+  end
 end
