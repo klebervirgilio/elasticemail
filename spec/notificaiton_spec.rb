@@ -54,4 +54,34 @@ describe Elasticemail::WebNotification::Notificaton do
   it 'does not expose invalid params' do
     expect { subject.not_a_param }.to raise_error(NoMethodError)
   end
+
+  describe '.soft_bounce?' do
+    Elasticemail::WebNotification::SOFT_BOUNCE.each do |bounce|
+      it "#{bounce} is soft bounce" do
+        notification = Elasticemail::WebNotification::Notificaton.new(category: bounce)
+        expect(notification).to be_soft_bounce
+      end
+    end
+    Elasticemail::WebNotification::HARD_BOUNCE.each do |bounce|
+      it "#{bounce} is not soft bounce" do
+        notification = Elasticemail::WebNotification::Notificaton.new(category: bounce)
+        expect(notification).not_to be_soft_bounce
+      end
+    end
+  end
+
+  describe '.hard_bounce?' do
+    Elasticemail::WebNotification::HARD_BOUNCE.each do |bounce|
+      it "#{bounce} is hard bounce" do
+        notification = Elasticemail::WebNotification::Notificaton.new(category: bounce)
+        expect(notification).to be_hard_bounce
+      end
+    end
+    Elasticemail::WebNotification::SOFT_BOUNCE.each do |bounce|
+      it "#{bounce} is not hard bounce" do
+        notification = Elasticemail::WebNotification::Notificaton.new(category: bounce)
+        expect(notification).not_to be_hard_bounce
+      end
+    end
+  end
 end

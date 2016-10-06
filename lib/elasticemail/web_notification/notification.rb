@@ -13,26 +13,51 @@ module Elasticemail
       UNSUBSCRIBED = "Unsubscribed" => :unsubscribed
     }.freeze
 
+    # http://api.elasticemail.com/public/help#classes_BouncedCategorySummary
     CATEGORIES = [
-      IGNORE                = "Ignore",
-      SPAM                  = "SPam",
-      BLACK_LISTED          = "BlackListed",
-      NO_MAILBOX            = "NoMailbox",
-      GREY_LISTED           = "GreyListed",
-      THROTTLED             = "Throttled",
-      TIMEOUT               = "Timeout",
-      CONNECTIO_NPROBLEM    = "ConnectionProblem",
-      SPF_PROBLEM           = "SPFProblem",
       ACCOUNT_PROBLEM       = "AccountProblem",
-      DNS_PROBLEM           = "DNSProblem",
-      WHITELISTING_PROBLEM  = "WhitelistingProblem",
+      BLACK_LISTED          = "BlackListed",
       CODE_ERROR            = "CodeError",
-      MANUAL_CANCEL         = "ManualCancel",
+      CONNECTION_PROBLEM    = "ConnectionProblem",
       CONNECTION_TERMINATED = "ConnectionTerminated",
       CONTENT_FILTER        = "ContentFilter",
+      DNS_PROBLEM           = "DnsProblem",
+      GREY_LISTED           = "GreyListed",
+      IGNORE                = "Ignore",
+      MANUAL_CANCEL         = "ManualCancel",
+      NO_MAILBOX            = "NoMailbox",
       NOT_DELIVERED         = "NotDelivered",
+      SPAM                  = "Spam",
+      SPF_PROBLEM           = "SpfProblem",
+      THROTTLED             = "Throttled",
+      TIMEOUT               = "Timeout",
       UNKNOWN               = "Unknown",
+      WHITELISTING_PROBLEM  = "WhitelistingProblem",
     ].freeze
+
+    # https://elasticemail.com/support/user-interface/activity/bounced-category-filters
+    DELIVERY_ERROR_CATEGORIES = [
+      HARD_BOUNCE = [
+        NO_MAILBOX,
+        ACCOUNT_PROBLEM
+      ],
+      SOFT_BOUNCE = [
+        CODE_ERROR,
+        CONNECTION_PROBLEM,
+        CONNECTION_TERMINATED,
+        DNS_PROBLEM,
+        GREY_LISTED,
+        "IpReputationIssue", # not sure about that one
+        MANUAL_CANCEL,
+        NOT_DELIVERED,
+        SPAM,
+        SPF_PROBLEM,
+        THROTTLED,
+        TIMEOUT,
+        UNKNOWN,
+        WHITELISTING_PROBLEM,
+      ]
+    ]
 
     KEYS = %w[ to subject status channel account category transaction target messageid ]
 
@@ -42,7 +67,15 @@ module Elasticemail
       end
 
       def date
-        DateTime.strptime(@hsh_params['date'], DATE_FORMAT)
+        @date ||= DateTime.strptime(@hsh_params['date'], DATE_FORMAT)
+      end
+
+      def soft_bounce?
+        @soft_bounce ||= SOFT_BOUNCE.include?(category)
+      end
+
+      def hard_bounce?
+        @hard_bounce ||= HARD_BOUNCE.include?(category)
       end
 
       STATUSES.each do |_status, _method|
