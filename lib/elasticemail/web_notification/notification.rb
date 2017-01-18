@@ -42,6 +42,7 @@ module Elasticemail
         ACCOUNT_PROBLEM
       ],
       SOFT_BOUNCE = [
+        BLACK_LISTED,
         CODE_ERROR,
         CONNECTION_PROBLEM,
         CONNECTION_TERMINATED,
