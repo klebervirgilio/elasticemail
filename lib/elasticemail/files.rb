@@ -13,7 +13,7 @@ module Elasticemail
     end
 
     def self.load(file_name, attachment_id, api_key=nil)
-      attachment = ElasticFile::LoadFile.new(api_key, file_name, attachment_id)
+      attachment = ElasticFile::LoadFile.new(api_key, file_name)
       yield attachment if block_given?
       attachment.perform
     end
