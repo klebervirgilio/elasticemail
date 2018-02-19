@@ -19,6 +19,12 @@ require "elasticemail/attachment/remove_attachment"
 require "elasticemail/attachment/get_attachment"
 require "elasticemail/attachments"
 
+# Files
+require "elasticemail/file/upload"
+require "elasticemail/file/delete_file"
+require "elasticemail/file/load_file"
+require "elasticemail/files"
+
 # Contact
 require "elasticemail/contact/add_contact"
 require "elasticemail/contact/change_status_contact"
