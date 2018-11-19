@@ -55,6 +55,7 @@
 "Cuba": 55
 "Cyprus": 56
 "Czech Republic": 57
+"Czechia": 57
 "Denmark": 58
 "Djibouti": 59
 "Dominica": 60
@@ -66,7 +67,7 @@
 "Eritrea": 66
 "Estonia": 67
 "Ethiopia": 68
-"Falkland Islands (Malvinas): 69
+"Falkland Islands (Malvinas)": 69
 "Faroe Islands": 70
 "Fiji": 71
 "Finland": 72
@@ -92,7 +93,7 @@
 "Guyana": 92
 "Haiti": 93
 "Heard Island And Mcdonald Islands": 94
-"Holy See (Vatican City State): 95
+"Holy See (Vatican City State)": 95
 "Honduras": 96
 "Hong Kong": 97
 "Hungary": 98
@@ -112,7 +113,9 @@
 "Kazakhstan": 112
 "Kenya": 113
 "Kiribati": 114
+"Korea": 116
 "Korea, Democratic People Republic Of": 115
+"North Korea": 115
 "Korea, Republic Of": 116
 "Kuwait": 117
 "Kyrgyzstan": 118
@@ -124,6 +127,7 @@
 "Libyan Arab Jamahiriya": 124
 "Liechtenstein": 125
 "Lithuania": 126
+"Lland Islands": 244
 "Luxembourg": 127
 "Macao": 128
 "Macedonia, The Former Yugoslav Republic Of": 129
@@ -228,11 +232,13 @@
 "United Arab Emirates": 228
 "United Kingdom": 229
 "United States": 230
+"United States of America": 230
 "United States Minor Outlying Islands": 231
 "Uruguay": 232
 "Uzbekistan": 233
 "Vanuatu": 234
 "Venezuela": 235
+"Vietnam": 236
 "Viet Nam": 236
 "Virgin Islands, British": 237
 "Virgin Islands, U.S.": 238
@@ -241,4 +247,3 @@
 "Yemen": 241
 "Zambia": 242
 "Zimbabwe": 243
-"Lland Islands": 24
