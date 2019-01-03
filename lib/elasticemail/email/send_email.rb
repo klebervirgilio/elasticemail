@@ -8,7 +8,7 @@ module Elasticemail
       :body_text             => "bodyText",
       :channel               => "channel",
       :charset               => "charset",
-      :data_source           => "data_source",
+      :data_source           => "dataSource",
       :encoding_type         => "encodingType",
       :from                  => "from",
       :from_name             => "fromName",
