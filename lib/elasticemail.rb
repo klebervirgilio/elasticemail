@@ -1,53 +1,57 @@
-require "elasticemail/version"
+require 'elasticemail/version'
 
-require "faraday"
-require "elasticemail/errors"
-require "elasticemail/constants"
-require "elasticemail/base"
+require 'faraday'
+require 'elasticemail/errors'
+require 'elasticemail/constants'
+require 'elasticemail/base'
 
 # Account
-require "elasticemail/account/add_account"
-require "elasticemail/account/delete_account"
-require "elasticemail/account/load_account"
-require "elasticemail/account/update_http_notification_account"
-require "elasticemail/account/update_profile_account"
-require "elasticemail/accounts"
+require 'elasticemail/account/add_account'
+require 'elasticemail/account/delete_account'
+require 'elasticemail/account/load_account'
+require 'elasticemail/account/add_webhook'
+require 'elasticemail/account/update_webhook'
+require 'elasticemail/account/delete_webhook'
+require 'elasticemail/account/load_webhook'
+require 'elasticemail/account/update_http_notification_account'
+require 'elasticemail/account/update_profile_account'
+require 'elasticemail/accounts'
 
 # Attachment
-require "elasticemail/attachment/upload"
-require "elasticemail/attachment/remove_attachment"
-require "elasticemail/attachment/get_attachment"
-require "elasticemail/attachments"
+require 'elasticemail/attachment/upload'
+require 'elasticemail/attachment/remove_attachment'
+require 'elasticemail/attachment/get_attachment'
+require 'elasticemail/attachments'
 
 # Contact
-require "elasticemail/contact/add_contact"
-require "elasticemail/contact/change_status_contact"
-require "elasticemail/contact/quick_add_contact"
-require "elasticemail/contact/delete_contact"
-require "elasticemail/contact/load_contact"
-require "elasticemail/contacts"
+require 'elasticemail/contact/add_contact'
+require 'elasticemail/contact/change_status_contact'
+require 'elasticemail/contact/quick_add_contact'
+require 'elasticemail/contact/delete_contact'
+require 'elasticemail/contact/load_contact'
+require 'elasticemail/contacts'
 
 # Emails
-require "elasticemail/email/send_email"
-require "elasticemail/emails"
+require 'elasticemail/email/send_email'
+require 'elasticemail/emails'
 
 # Domains
-require "elasticemail/domain/add_domain"
-require "elasticemail/domain/verify_dkim"
-require "elasticemail/domain/verify_spf"
-require "elasticemail/domain/verify_mx"
-require "elasticemail/domains"
+require 'elasticemail/domain/add_domain'
+require 'elasticemail/domain/verify_dkim'
+require 'elasticemail/domain/verify_spf'
+require 'elasticemail/domain/verify_mx'
+require 'elasticemail/domains'
 
 
-require "elasticemail/web_notification/notification"
+require 'elasticemail/web_notification/notification'
 
 
 
 module Elasticemail
   extend self
 
-  ELASTIC_EMAIL_API_HOST    = "https://api.elasticemail.com"
-  ELASTIC_EMAIL_API_VERSION = "v2"
+  ELASTIC_EMAIL_API_HOST    = 'https://api.elasticemail.com'
+  ELASTIC_EMAIL_API_VERSION = 'v2'
 
   def configure
     yield self
