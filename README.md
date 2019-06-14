@@ -77,19 +77,34 @@ Elasticemail::Attachments.remove(file_name)
 
 # Send email
 Elasticemail::Emails.deliver do |email|
-  email.charset        = 'utf-8'
-  email.post_back      = 'http://requestb.in/...'
-  email.reply_to_email = 'reply to name'
-  email.channel        = 'aka tag'
-  email.reply_to       = 'reply@toemail.com'
-  email.from_name      = 'from name'
-  email.from           = 'from@email.com'
-  email.to             = 'example1@example.com,example2@example.com'
-  email.msg_to         = 'example1@example.com,example2@example.com'
-  email.msg_cc         = 'example1@example.com,example2@example.com'
-  email.subject        = 'Subject'
-  email.body_html      = '<h1>hi</h1><a href="http://www.google.com">link...</a>'
-  email.body_text      = 'hi'
+      :api_key               => "apikey",
+      :attachment_files      => "attachmentFiles",
+      :body_html             => "bodyHtml",
+      :body_text             => "bodyText",
+      :channel               => "channel",
+      :charset               => "charset",
+      :data_source           => "data_source",
+      :encoding_type         => "encodingType",
+      :from                  => "from",
+      :from_name             => "fromName",
+      :lists                 => "lists",
+      :merge                 => "merge",
+      :merge_source_filename => "mergeSourceFilename",
+      :msg_bcc               => "msgBcc",
+      :msg_cc                => "msgCC",
+      :msg_from              => "msgFrom",
+      :msg_from_name         => "msgFromName",
+      :msg_to                => "msgTo",
+      :post_back             => "postBack",
+      :reply_to              => "replyTo",
+      :reply_to_name         => "replyToName",
+      :segments              => "segments",
+      :sender                => "sender",
+      :sender_name           => "senderName",
+      :subject               => "subject",
+      :template              => "template",
+      :time_offset_minutes   => "timeOffSetMinutes",
+      :to                    => "to"
 end
 ```
 
